@@ -35,6 +35,7 @@ int ALL_SIZE = dl.allsize();
 		<tr>
     <th width="50px">ID</th>
     <th width="50px">用户ID</th>
+    <th width="50px">名称</th>
     <th width="50px">搜索引擎URL关键字部分以{key}为占位符,如果是需要中文转译的关键字则是用{ekey}为占位符</th>
     <th width="50px">状态</th>
     
@@ -48,6 +49,7 @@ if(ALL_SIZE>0){
 	for(NgnSearch ngnSearch : dl){
 		long id = ngnSearch.getId();
 		long userId = ngnSearch.getUserId();
+		String name = ngnSearch.getName();
 		String searchurl = ngnSearch.getSearchurl();
 		int status = ngnSearch.getStatus();
 		
@@ -55,6 +57,7 @@ if(ALL_SIZE>0){
 	<tr style="text-align: center;">
       <td><%=id%></td>
       <td><%=userId%></td>
+      <td><%=name%></td>
       <td><%=searchurl%></td>
       <td><%=status%></td>
       

@@ -6,6 +6,7 @@ String opMsg = "操作成功！";
 //开始do
 NgnSearch ngnSearch = new NgnSearch();
 long userId = box.getLongParam("userId");
+String name = box.getParam("name");
 String searchurl = box.getParam("searchurl");
 int status = box.getIntParam("status",-1);
 
@@ -13,6 +14,7 @@ try {
 	ngnSearch.setId(dao.getSequenceId(NgnSearch.class));
 	
 	ngnSearch.setUserId(userId);
+	ngnSearch.setName(name);
 	ngnSearch.setSearchurl(searchurl);
 	ngnSearch.setStatus(status);
 	

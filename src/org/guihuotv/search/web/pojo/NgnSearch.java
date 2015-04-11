@@ -34,6 +34,9 @@ public class NgnSearch implements Serializable,Cloneable {
 		MAP_COL_TYPE.put("user_id",DmObjectType.LONG);
 		MAP_COL_NAME.put("user_id","userId");
 		
+		MAP_COL_TYPE.put("name",DmObjectType.STRING);
+		MAP_COL_NAME.put("name","name");
+		
 		MAP_COL_TYPE.put("searchurl",DmObjectType.STRING);
 		MAP_COL_NAME.put("searchurl","searchurl");
 		
@@ -48,6 +51,8 @@ public class NgnSearch implements Serializable,Cloneable {
 	public static final String COL_ID = "id";
 	
 	public static final String COL_USER_ID = "user_id";
+	
+	public static final String COL_NAME = "name";
 	
 	public static final String COL_SEARCHURL = "searchurl";
 	
@@ -94,6 +99,12 @@ public class NgnSearch implements Serializable,Cloneable {
 	 * 用户ID
 	 */
 	private long userId = 0l;
+	
+	
+	/**
+	 * 名称
+	 */
+	private String name = "";
 	
 	
 	/**
@@ -171,6 +182,14 @@ public class NgnSearch implements Serializable,Cloneable {
 	}
 	
 	/**
+	 * 获取名称数值
+	 */
+	public String getName()
+	{
+		return this.name;
+	}
+	
+	/**
 	 * 获取搜索引擎URL关键字部分以{key}为占位符,如果是需要中文转译的关键字则是用{ekey}为占位符数值
 	 */
 	public String getSearchurl()
@@ -232,6 +251,23 @@ public class NgnSearch implements Serializable,Cloneable {
 	}
 	
 	/**
+	 * 设置名称数值
+	 */
+	public void setName(String name)
+	{
+		if ((!String.valueOf(this.name).equals(String.valueOf(name)))){
+			if (this.LIST_COL_UPDATED==null){ 
+				initSetInfo();
+			}
+			if (!this.LIST_COL_UPDATED.contains("name")){ 
+				this.LIST_COL_UPDATED.add("name");
+			}
+			this._CHANGED_INFO.append("字段name由\""+this.name+"\"修改为\""+name+"\"\r\n");
+			this.name = name;
+		}
+	}
+	
+	/**
 	 * 设置搜索引擎URL关键字部分以{key}为占位符,如果是需要中文转译的关键字则是用{ekey}为占位符数值
 	 */
 	public void setSearchurl(String searchurl)
@@ -270,10 +306,11 @@ public class NgnSearch implements Serializable,Cloneable {
 	/**
 	 * 构造器
 	 */
-	public NgnSearch(long id,long userId,String searchurl,int status){
+	public NgnSearch(long id,long userId,String name,String searchurl,int status){
 	
 		this.id = id;
 		this.userId = userId;
+		this.name = name;
 		this.searchurl = searchurl;
 		this.status = status;
 		
@@ -294,6 +331,7 @@ public class NgnSearch implements Serializable,Cloneable {
 		StringBuilder sb = new StringBuilder(_SEPARATE_LINE+"表NgnSearch，主键\""+this.id+"\"的全部信息为:\r\n");
 		sb.append("字段id数值为:"+id+"\r\n");
 		sb.append("字段user_id数值为:"+userId+"\r\n");
+		sb.append("字段name数值为:"+name+"\r\n");
 		sb.append("字段searchurl数值为:"+searchurl+"\r\n");
 		sb.append("字段status数值为:"+status+"\r\n");
 		
