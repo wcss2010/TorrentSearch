@@ -2,7 +2,7 @@
 <%@include file="/include/init.jsp" %>
 <html>
 <head>
-<title>NGN下一代通讯系统</title>
+<title>焰火磁力聚合搜索系统</title>
 </head>
 
 <frameset rows="60,*,5" cols="*" frameborder="no" border="0" framespacing="0">

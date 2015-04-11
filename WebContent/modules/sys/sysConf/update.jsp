@@ -25,7 +25,7 @@ $(document).ready(function(){
 		</tr>
 		<tr>
 			<th width="100" align="right">属性值：</th>
-			<td align="left"><input  name="propValue" id="propValue" type="text" value="<%=sc.getPropValue()%>" class="input_001" /><span id="propValueTip" style="padding-bottom:5px;"></span></td>
+			<td align="left"><textarea id="propValue" name="propValue" cols="30" rows="5" class="input_001"><%=sc.getPropValue()%></textarea><span id="propValueTip" style="padding-bottom:5px;"></span></td>
 		</tr>
 		<tr>
 			<th width="100" align="right">属性备注：</th>
