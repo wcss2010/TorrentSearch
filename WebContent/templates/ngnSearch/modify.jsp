@@ -8,7 +8,7 @@
 long id = box.getLongParam("id");
 NgnSearch ngnSearch = (NgnSearch)dao.load(NgnSearch.class,id);
 long userId = ngnSearch.getUserId();
-String name = ngnSearch.getName();
+String sname = ngnSearch.getSname();
 String searchurl = ngnSearch.getSearchurl();
 int status = ngnSearch.getStatus();
 
@@ -42,7 +42,7 @@ $(document).ready(function(){
 		onError : "你输入的用户ID不正确,请确认!"
 	});
 	
-	$("#name").formValidator({
+	$("#sname").formValidator({
 		empty : true,
 		onShow : "请输入名称",
 		onFocus : "名称至少3个字符",
@@ -100,8 +100,8 @@ $(document).ready(function(){
      </tr>
     <tr><th align="right" width="100px">名称:</th>
       <td align="left">
-         <input type="text" id="name" name="name" size="24" class="input_001" value="<%=name%>"/>
-         <span id="nameTip"></span>
+         <input type="text" id="sname" name="sname" size="24" class="input_001" value="<%=sname%>"/>
+         <span id="snameTip"></span>
       </td>
      </tr>
     <tr><th align="right" width="100px">搜索引擎URL关键字部分以{key}为占位符,如果是需要中文转译的关键字则是用{ekey}为占位符:</th>

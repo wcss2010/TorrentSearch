@@ -5,7 +5,7 @@
 long id = box.getLongParam("id");
 String opMsg = "操作成功！";
 long userId = box.getLongParam("userId");
-String name = box.getParam("name");
+String sname = box.getParam("sname");
 String searchurl = box.getParam("searchurl");
 int status = box.getIntParam("status",-1);
 
@@ -13,7 +13,7 @@ NgnSearch ngnSearch = (NgnSearch)dao.load(NgnSearch.class,id);
 //开始do
 try {
 	ngnSearch.setUserId(userId);
-	ngnSearch.setName(name);
+	ngnSearch.setSname(sname);
 	ngnSearch.setSearchurl(searchurl);
 	ngnSearch.setStatus(status);
 	

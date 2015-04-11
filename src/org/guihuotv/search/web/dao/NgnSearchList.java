@@ -355,7 +355,7 @@ public class NgnSearchList implements DataList<NgnSearch>{
 	private void loadData(ResultSet rs) throws Exception{
 		if (this.colList==null){
 			while(rs.next()){ 
-				NgnSearch ngnSearch= new NgnSearch(rs.getLong("id"),rs.getLong("user_id"),DmValueUtils.nullToStr(rs.getString("name")),DmValueUtils.nullToStr(rs.getString("searchUrl")),rs.getInt("status"));
+				NgnSearch ngnSearch= new NgnSearch(rs.getLong("id"),rs.getLong("user_id"),DmValueUtils.nullToStr(rs.getString("sname")),DmValueUtils.nullToStr(rs.getString("searchUrl")),rs.getInt("status"));
 				ngnSearch.CURRENT_TABLE_NAME = (tableName==null?null:tableName);
 				this.results.add(ngnSearch);
 				this.size++;
@@ -381,7 +381,7 @@ public class NgnSearchList implements DataList<NgnSearch>{
 	private String getSql(){
 		StringBuilder sb = new StringBuilder();
 		if (this.colList==null){
-			sb.append("SELECT id,user_id,name,searchUrl,status FROM "+(tableName==null?"ngn_search":tableName));
+			sb.append("SELECT id,user_id,sname,searchUrl,status FROM "+(tableName==null?"ngn_search":tableName));
 			sb.append(" ");
 		}else{
 			sb.append(" SELECT ");

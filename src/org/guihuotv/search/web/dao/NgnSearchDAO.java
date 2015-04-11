@@ -73,7 +73,7 @@ public class NgnSearchDAO {
 	private static NgnSearch insertIntoDb(DAOFactoryImpl dao,String tableName,NgnSearch ngnSearch)  throws TransactionException{
 		String insertSql=
 			"INSERT INTO "+(tableName==null?"ngn_search":tableName) +
-			"(id,user_id,name,searchUrl,status) "+
+			"(id,user_id,sname,searchUrl,status) "+
 			"VALUES "+
 			"(?,?,?,?,?) ";
 		Connection con = null;
@@ -86,7 +86,7 @@ public class NgnSearchDAO {
 			
 			pstmt.setLong(1,ngnSearch.getId());
 			pstmt.setLong(2,ngnSearch.getUserId());
-			pstmt.setString(3,ngnSearch.getName());
+			pstmt.setString(3,ngnSearch.getSname());
 			pstmt.setString(4,ngnSearch.getSearchurl());
 			pstmt.setInt(5,ngnSearch.getStatus());
 			
@@ -115,7 +115,7 @@ public class NgnSearchDAO {
 	private static  void updateToDb(DAOFactoryImpl dao,String tableName,NgnSearch ngnSearch)  throws TransactionException{
 		String updateSql =
 		"UPDATE "+(tableName==null?"ngn_search":tableName)+" SET " +
-		"user_id=?,name=?,searchUrl=?,status=? "+
+		"user_id=?,sname=?,searchUrl=?,status=? "+
 		"WHERE id=?";
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -123,7 +123,7 @@ public class NgnSearchDAO {
 			con = dao.getTransactionController().getConnection((tableName==null?"ngn_search":tableName),"write");
 			pstmt = dao.getBatchUpdateController().prepareStatement(con,updateSql);
 			pstmt.setLong(1,ngnSearch.getUserId());
-			pstmt.setString(2,ngnSearch.getName());
+			pstmt.setString(2,ngnSearch.getSname());
 			pstmt.setString(3,ngnSearch.getSearchurl());
 			pstmt.setInt(4,ngnSearch.getStatus());
 			
@@ -207,7 +207,7 @@ public class NgnSearchDAO {
 		NgnSearch ngnSearch= null;
 		try {
 			String loadSql =
-			"SELECT id,user_id,name,searchUrl,status FROM "+(tableName==null?"ngn_search":tableName)+" "+(whereSql==null?"WHERE id=?":whereSql);
+			"SELECT id,user_id,sname,searchUrl,status FROM "+(tableName==null?"ngn_search":tableName)+" "+(whereSql==null?"WHERE id=?":whereSql);
 			con = dao.getTransactionController().getConnection((tableName==null?"ngn_search":tableName),"read");
 			pstmt = con.prepareStatement(loadSql);
 			if (paramList != null && paramList.length > 0) {
@@ -217,7 +217,7 @@ public class NgnSearchDAO {
 			}
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-			ngnSearch= new NgnSearch(rs.getLong("id"),rs.getLong("user_id"),DmValueUtils.nullToStr(rs.getString("name")),DmValueUtils.nullToStr(rs.getString("searchUrl")),rs.getInt("status"));
+			ngnSearch= new NgnSearch(rs.getLong("id"),rs.getLong("user_id"),DmValueUtils.nullToStr(rs.getString("sname")),DmValueUtils.nullToStr(rs.getString("searchUrl")),rs.getInt("status"));
 			ngnSearch.CURRENT_TABLE_NAME = (tableName==null?null:tableName);
 
 			}

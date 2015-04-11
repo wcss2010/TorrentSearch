@@ -49,7 +49,7 @@ if(ALL_SIZE>0){
 	for(NgnSearch ngnSearch : dl){
 		long id = ngnSearch.getId();
 		long userId = ngnSearch.getUserId();
-		String name = ngnSearch.getName();
+		String sname = ngnSearch.getSname();
 		String searchurl = ngnSearch.getSearchurl();
 		int status = ngnSearch.getStatus();
 		
@@ -57,7 +57,7 @@ if(ALL_SIZE>0){
 	<tr style="text-align: center;">
       <td><%=id%></td>
       <td><%=userId%></td>
-      <td><%=name%></td>
+      <td><%=sname%></td>
       <td><%=searchurl%></td>
       <td><%=status%></td>
       
