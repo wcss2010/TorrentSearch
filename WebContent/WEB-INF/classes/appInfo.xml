@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+<app description="应用信息">
+		<appName description="应用名称">焰火磁力聚合搜索系统</appName>
+		<appVersion description="应用版本">V1.0</appVersion>
+		<deploymentPath description="部署路径">/opt/ngn</deploymentPath>
+		<deploymentDate description="部署时间">2015-5-1 16:17:03</deploymentDate>
+	</app>
+</config>

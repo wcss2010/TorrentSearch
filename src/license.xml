@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+<customerInfo description="客户信息">
+		<country description="国家">中华人民共和国</country>
+		<province description="省/地区">北京市</province>
+		<corporation description="客户单位">焰火软件工作室</corporation>
+		<manufacturer description="生产商">焰火软件工作室</manufacturer>
+		<agent description="服务商">焰火软件工作室</agent>
+		<contract description="合同信息">UMTONE000000</contract>
+</customerInfo>
+<productInfo description="产品信息">
+		<productName description="产品名称">焰火磁力聚合搜索系统</productName>
+		<productVersion description="产品版本">V1.0</productVersion>
+		<productType description="授权类型">开发版</productType>
+</productInfo>
+<platformInfo description="中间件授权">
+		<radioNum description="用户授权数量">500</radioNum>
+		<apiNum description="接口用户授权数量">10</apiNum>
+</platformInfo>
+<expiredDate description="授权过期日期">2019-10-31 23:59:59</expiredDate>
+<!-- license code -->
+<code description="授权码">X41RgAzsKUyQHn+RyxxPi37WrGHaA6TuMkMkN2weqN+x4g+68pTEdYL7p/GSCEMDhSbceINTVk/t8qkHai5S4gS9zTdYDTI6EI+u6T2CeLD4HUaOSpu/EWd70z8ImtGdXK65AK/eLPL/Vo65D5ll1rQQmaQCHvdE3P5EMoJUpL1TnsW4f7M2aBd1UESII/KJoeRYbIJGGa/tm96Hxm+cCDNhOtfW/mpuMhjF7j7pueF69SPXw3pZEQLvvyo0cfT4t+2qtpiX3Gm1XycRr6VGP33tkq3AKAMAwVLbp1ciauQM5hEd09GZwDClowb2HTK7cUJXM9b8C3GDIAcjn0S1THghuZIEyrJ+cBUG4geb/8SDOXYX0/Rj94iYLe3b6A2nPLSEEmbysYHhktMSjv73/NfCKrqfPi+uwqaTxo+XGR3CQ5/eqgsas300sC8OK4dDb4Oi+tJZseBPkFlmKt45pUsteGblixJ55X/PhFYli9HgAQ9WoJjSDTyA/Y5nEVAqFcYWAAABQgoXyAAwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCNU5T2jrkv/9ehF1gy9Ge7XFwLWVn1FOSHQG1CROF6J+Rd9xlRNz2CVWhf6MRyEnVwuKMA1T1wF2M6TChCfFQJEHur4FXlyxv3lvS/1d6rk2JWb1/b13kaGmsxTXWGCCtFB7ZbbXoHtCRUNexuFrvlK8JLBpKdJFIeru+b925qmz21gNqy7UZz7zc9yGT3lwkT0qD+wslx2tdqmLYj2CxbHVykawkJ9wa2Z9CEMd3aOpIA50WE5eRMGjW1Q31lRnyqHiPxeDpzd1gNGkcbVCGH9HC8P4w6wuYmDcApREL4STNtArL9To0JADfHxQNROKbH4t3rcTxbYaLPshjvAnpEITgVnJpkdGAsABKL5ixJPGPrnlwPLyv4FNMp6672MQgfESYuGRRBxkWTSEJhHgss5doBGmy6T+lTRfOjLnppRvmlrwXKZ41tyzeR04gXsGCbGSKAzYg+56/UtVXucyR7Wi8D1PDu6cnFY5ZsXoaL0RJlMwEiNc+MmFKbZRIplMkCAwEAAQ==</code>
+<buildDate>9999-09-11 11:08:07</buildDate>
+</config>
