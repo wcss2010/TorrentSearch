@@ -7,10 +7,12 @@
 <%@include file="/include/homepageHeader.jsp"%>
 
 <div class="page">
-	<div class="header"></div>
+	<div class="header">
+		<%=SysConfigUtils.getString("homepage", "codeA").replace("empty", "")%>
+	</div>
 	<div class="content">
 		<div>
-			<img src="/images/logo.png" title="BT樱桃 磁力链接搜索引擎" alt="btcherry" />
+			<img src="<%=SysConfigUtils.getString("homepage", "logo")%>" title="BT樱桃 磁力链接搜索引擎" alt="btcherry" />
 		</div>
 		<form action="/btSearch.jsp">
 			<div style="padding-top: 20px;">
@@ -53,6 +55,8 @@
 				<ul>
 					<li><a href="mailto:<%=SysConfigUtils.getString("homepage", "email")%>">联系我们</a></li>
 				</ul>
+
+				<div style="clear: both; margin-bottom: 20px;"><%=SysConfigUtils.getString("homepage", "htmlcount").replace("empty", "")%></div>
 			</div>
 			<div style="clear: both; margin-bottom: 20px;"></div>
 		</div>
