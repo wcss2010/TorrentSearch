@@ -15,6 +15,8 @@
 	boolean sucOrNot = true;
 	try {
 		dao.update(sc);
+		
+		SysConfigUtils.reload();
 	} catch (Exception e) {
 		JSPLogger.error(e.getMessage(),e);
 		sucOrNot = false;

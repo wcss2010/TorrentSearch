@@ -15,7 +15,7 @@
 	//权限校验
 	//LicenseManager8.verifyOneTenThousandChance(ProductVerify8.getPubKey(), new LicenseExceptionProcess8());
 	//页面标题
-	String PAGE_TITLE = "焰火磁力聚合搜索系统";
+	String PAGE_TITLE = "欢迎使用！";
 	String MENU_TITLE = MscUtils.getPermCNName(request.getRequestURI());
 	if (!"".equals(MENU_TITLE)) {
 		PAGE_TITLE = MENU_TITLE;
