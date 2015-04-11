@@ -24,7 +24,7 @@ if(MSC_USER!=null)
 			已有同名账户登录，点击“强制登录”按钮，系统会自动将其踢出。<br/>
 			同名账户登录IP：<%=msli==null?"":msli.getIp() %>，登录时间：<%=sdfDetail.format(msli.getLogonDate()) %>。<br/>
 			如果您认为有非法侵入，请重新登陆后检查系统鉴权日志。<br/>
-			<form action="doForceLogon.jsp">
+			<form action="doAdminForceLogon.jsp">
 			<input type="submit" value="强制登录！" />
 			</form>			
 		</div>

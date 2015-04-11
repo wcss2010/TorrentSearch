@@ -37,7 +37,5 @@ if(!"".equals(currentUser)){
  当前登录人员：<%=currentUser%></b>&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
 <%} %>
   本次登录时间：<%=sdfWhole.format(currentMu.getLastLogonDate())%>/IP：<%=currentMu.getLastLogonIp()%>
-  <img src="/images/button_tc.gif" onClick="javascript:window.parent.location.href='/doLogin.jsp?operation=logout';" style="cursor:pointer;">
-  
-</div>
+  <img src="/images/button_tc.gif" onClick="javascript:window.parent.location.href='/doAdminLogin.jsp?operation=logout';" style="cursor: pointer;"></div>
 </div>

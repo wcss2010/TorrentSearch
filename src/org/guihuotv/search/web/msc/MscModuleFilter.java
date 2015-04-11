@@ -40,7 +40,7 @@ public class MscModuleFilter implements Filter {
 		if(mscUser!=null)
 			msli = MscSingleLogonService.checkSingleLogon(mscUser.getId());
 		if (msli == null || !msli.getSessionId().equals(session.getId())) {
-			request.getRequestDispatcher("/forceLogout.jsp").forward(req,res);
+			request.getRequestDispatcher("/adminForceLogout.jsp").forward(req,res);
 		} else {
 			// 进行权限�?��
 			String url = req.getServletPath();

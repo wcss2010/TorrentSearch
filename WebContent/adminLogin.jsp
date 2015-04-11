@@ -62,7 +62,7 @@
 		<div id="center">
 			<div id="center_left"></div>
 			<div id="center_middle">
-				<form action="doLogin.jsp" method="post" name="form1" id="form1">
+				<form action="doAdminLogin.jsp" method="post" name="form1" id="form1">
 					<input type="hidden" name="operation" value="login"></input>
 					<div id="user">
 						用 户 <input type="text" name="username" />
@@ -70,7 +70,7 @@
 					<div id="password">
 						密 码 <input type="password" name="passwd" />
 					</div>
-					
+
 					<div id="check">
 						验证码 <input name="randCode" type="text" style="width: 60px" /> <img id="RandomImg" name="RandomImg" src="/randImage.jsp?0.0" style="vertical-align: bottom;" />&nbsp;<a href="javascript:reflash();">刷新</a>
 					</div>

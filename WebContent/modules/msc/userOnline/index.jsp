@@ -12,28 +12,30 @@
 		<th>操作</th>
 	</thead>
 	<tbody>
-<%
-Map<Long,MscSingleLogonInfo> map1 = MscSingleLogonService.getLogonMap();
-for (Map.Entry<Long,MscSingleLogonInfo> e:map1.entrySet()){
-	MscSingleLogonInfo msli = e.getValue();
-%>
-	<tr style="text-align: center;">
-		<td><%=msli.getUsername()%></td>
-		<td><%=msli.getIp()%></td>
-		<td><%=sdfDetail.format(msli.getLogonDate())%></td>
-		<td><%=msli.getLastAction()%></td>
-		<td><%=sdfDetail.format(msli.getLastUpdate())%></td>
-		<td>
-			<%if(!MSC_USER.getUsername().equals(msli.getUsername())){%>
-		<a href="doForceLogout.jsp?id=<%=msli.getId() %>" onclick="return confirm('强制下线用户，对方将收到提示信息，请确认操作！');">强制下线</a>
-		<%}else{ %>
-				<a style="cursor: pointer;color: red">本机用户</a>
-		<%} %>
-		</td>
-	</tr>
-<%
-}
-%>
+		<%
+			Map<Long, MscSingleLogonInfo> map1 = MscSingleLogonService.getLogonMap();
+			for (Map.Entry<Long, MscSingleLogonInfo> e : map1.entrySet()) {
+				MscSingleLogonInfo msli = e.getValue();
+		%>
+		<tr style="text-align: center;">
+			<td><%=msli.getUsername()%></td>
+			<td><%=msli.getIp()%></td>
+			<td><%=sdfDetail.format(msli.getLogonDate())%></td>
+			<td><%=msli.getLastAction()%></td>
+			<td><%=sdfDetail.format(msli.getLastUpdate())%></td>
+			<td>
+				<%
+					if (!MSC_USER.getUsername().equals(msli.getUsername())) {
+				%> <a href="doAdminForceLogout.jsp?id=<%=msli.getId()%>" onclick="return confirm('强制下线用户，对方将收到提示信息，请确认操作！');">强制下线</a> <%
+ 	} else {
+ %> <a style="cursor: pointer; color: red">本机用户</a> <%
+ 	}
+ %>
+			</td>
+		</tr>
+		<%
+			}
+		%>
 	</tbody>
 </table>
 <%@include file="/include/footer.jsp"%>

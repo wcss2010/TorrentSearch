@@ -45,7 +45,7 @@
 				if (msli != null) {
 					//说明有重复登录！
 					out.clear();
-					response.sendRedirect("/forceLogon.jsp");
+					response.sendRedirect("/adminForceLogon.jsp");
 					return;
 				} else {
 					//处理msli
