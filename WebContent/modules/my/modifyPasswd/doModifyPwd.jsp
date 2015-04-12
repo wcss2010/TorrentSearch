@@ -5,8 +5,8 @@
 	String newPwd = box.getParam("newPwd");
 	String oldPwd=box.getParam("oldPwd");
 	MscUser mu = dao.load(MscUser.class, MSC_USER.getId());
-	if (mu != null && PasswordUtils.encode3Passwd(oldPwd).equalsIgnoreCase(mu.getPasswd())) {
-		mu.setPasswd(PasswordUtils.encode3Passwd(newPwd));
+	if (mu != null && PasswordUtils.encode3Password(oldPwd).equalsIgnoreCase(mu.getPasswd())) {
+		mu.setPasswd(PasswordUtils.encode3Password(newPwd));
 		try{
 		dao.update(mu);
 		}catch(Exception e){

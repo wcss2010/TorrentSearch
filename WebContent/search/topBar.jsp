@@ -22,7 +22,7 @@
 			<td>
 				<%
 					if (msg != null && !msg.isEmpty()) {
-				%><u><font size="5px" color="#333333">通知：<%=msg%></font> </u>
+				%><u><font size="3px" color="#333333">通知：<%=msg%></font> </u>
 				<%
 					}
 				%>
