@@ -37,8 +37,11 @@
 	if (keyword != null || keywords != null) {
 
 		if (keyword == null) {
-		    keyword = new String(keywords.getBytes("ISO-8859-1"),"UTF8");
-                    //keyword = java.net.URLDecoder.decode(keywords,"UTF8");
+			if (SysConfigUtils.getString("homepage", "URIEncoding") == null || (SysConfigUtils.getString("homepage", "URIEncoding") != null && !SysConfigUtils.getString("homepage", "URIEncoding").equals("utf8"))) {
+				keyword = new String(keywords.getBytes(SysConfigUtils.getString("homepage", "URIEncoding")), "utf8");
+			} else {
+				keyword = keywords;
+			}
 		}
 
 		StringBuilder wheresql = new StringBuilder("where status>-1");

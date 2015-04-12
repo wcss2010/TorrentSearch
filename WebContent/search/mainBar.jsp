@@ -8,7 +8,13 @@
 
 <%
 	String source = request.getParameter("keyword");
-	String keyword = new String((source != null ? source : "").getBytes("ISO-8859-1"), "UTF8");
+	String keyword = "";
+
+	if (SysConfigUtils.getString("homepage", "URIEncoding") == null || (SysConfigUtils.getString("homepage", "URIEncoding") != null && !SysConfigUtils.getString("homepage", "URIEncoding").equals("utf8"))) {
+		keyword = new String((source != null ? source : "").getBytes("ISO-8859-1"), "UTF8");
+	} else {
+		keyword = source;
+	}
 
 	ArrayList<String> names = new ArrayList<String>();
 	ArrayList<String> urls = new ArrayList<String>();
@@ -43,5 +49,5 @@
 		}
 	%>
 </div>
-<HR style="FILTER: alpha(opacity =               100, finishopacity =               0, style =               1)" width="100%" color=#0000FF SIZE=1>
+<HR style="FILTER: alpha(opacity =                     100, finishopacity =                     0, style =                     1)" width="100%" color=#0000FF SIZE=1>
 <%@include file="/include/footer.jsp"%>

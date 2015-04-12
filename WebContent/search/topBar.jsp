@@ -7,8 +7,14 @@
 <%@include file="/include/homepageHeader.jsp"%>
 
 <%
-        String source = request.getParameter("keyword");
-	String keyword = new String((source != null?source:"").getBytes("ISO-8859-1"),"UTF8");
+	String source = request.getParameter("keyword");
+	String keyword = "";
+
+	if (SysConfigUtils.getString("homepage", "URIEncoding") == null || (SysConfigUtils.getString("homepage", "URIEncoding") != null && !SysConfigUtils.getString("homepage", "URIEncoding").equals("utf8"))) {
+		keyword = new String((source != null ? source : "").getBytes("ISO-8859-1"), "UTF8");
+	} else {
+		keyword = source;
+	}
 
 	String msg = "";
 	DataList<NgnMsg> dl = dao.list(NgnMsg.class, "where status >= 1 and userId = 10000 and toUserId = 0 order by sendDate desc");
