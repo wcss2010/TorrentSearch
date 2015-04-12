@@ -14,7 +14,7 @@
 		<div>
 			<img src="<%=SysConfigUtils.getString("homepage", "logo")%>" title="BT樱桃 磁力链接搜索引擎" alt="btcherry" />
 		</div>
-		<form action="/btSearch.jsp">
+		<form action="/btSearch.jsp" method="post">
 			<div style="padding-top: 20px;">
 				<input name="keyword" id="keyword" type="text" placeholder="搜索影视、明星、游戏、软件..." />
 			</div>
@@ -26,9 +26,10 @@
 					String hs = SysConfigUtils.getString("homepage", "hotSearch");
 					if (hs != null) {
 						String[] hst = hs.split(",");
-						for (String ss : hst) {
+						for (String name : hst) {
+							String url = java.net.URLEncoder.encode(name, "utf8");
 				%>
-				<a style="margin-left: 5px;" href="/btSearch.jsp?keyword=<%=ss%>"><%=ss%></a>
+				<a style="margin-left: 5px;" href="/btSearch.jsp?words=<%=url%>"><%=name%></a>
 				<%
 					}
 					}

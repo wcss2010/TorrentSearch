@@ -7,7 +7,8 @@
 <%@include file="/include/homepageHeader.jsp"%>
 
 <%
-	String keyword = box.getParam("keyword");
+	String keyword = java.net.URLDecoder.decode(box.getParam("keyword"), "utf8");
+
 	HashMap<String, String> viewMap = new HashMap<String, String>();
 	StringBuilder wheresql = new StringBuilder("where status>-1");
 	wheresql.append(" order by id desc");
@@ -35,5 +36,5 @@
 		}
 	%>
 </div>
-<HR style="FILTER: alpha(opacity =       100, finishopacity =       0, style =       1)" width="100%" color=#0000FF SIZE=1>
+<HR style="FILTER: alpha(opacity =         100, finishopacity =         0, style =         1)" width="100%" color=#0000FF SIZE=1>
 <%@include file="/include/footer.jsp"%>

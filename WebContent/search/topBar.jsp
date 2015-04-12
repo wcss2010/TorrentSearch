@@ -7,7 +7,7 @@
 <%@include file="/include/homepageHeader.jsp"%>
 
 <%
-	String keyword = box.getParam("keyword");
+	String keyword = java.net.URLDecoder.decode(box.getParam("keyword"), "utf8");
 
 	String msg = "";
 	DataList<NgnMsg> dl = dao.list(NgnMsg.class, "where status >= 1 and userId = 10000 and toUserId = 0 order by sendDate desc");
@@ -22,10 +22,9 @@
 			<td>
 				<%
 					if (msg != null && !msg.isEmpty()) {
-				%><u><font size="3px" color="#333333">通知：<%=msg%></font> </u>
-				<%
-					}
-				%>
+				%><u><font size="3px" color="#333333">通知：<%=msg%></font> </u> <%
+ 	}
+ %>
 			</td>
 		</tr>
 	</table>

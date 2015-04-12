@@ -29,22 +29,34 @@
 
 
 <%
-	String keyword = box.getParam("keyword");
 	HashMap<String, String> viewMap = new HashMap<String, String>();
-	StringBuilder wheresql = new StringBuilder("where status>-1");
+	String keyword = box.getParam("keyword");
+	String keywords = box.getParam("words");
 	String firstUrl = "";
-	wheresql.append(" order by id desc");
-	DataList<NgnSearch> dl = dao.list(NgnSearch.class, wheresql.toString());
-	for (NgnSearch ns : dl) {
-		if (ns.getSearchurl() != null && ns.getSearchurl().contains("{SKey}")) {
-			if (firstUrl.isEmpty()) {
-				firstUrl = ns.getSearchurl().replace("{SKey}", keyword);
+
+	if (keyword != null || keywords != null) {
+
+		if (keyword == null) {
+			keyword = keywords;
+		} else {
+			keyword = java.net.URLEncoder.encode(keyword, "utf8");
+		}
+
+		StringBuilder wheresql = new StringBuilder("where status>-1");
+
+		wheresql.append(" order by id desc");
+		DataList<NgnSearch> dl = dao.list(NgnSearch.class, wheresql.toString());
+		for (NgnSearch ns : dl) {
+			if (ns.getSearchurl() != null && ns.getSearchurl().contains("{SKey}")) {
+				if (firstUrl.isEmpty()) {
+					firstUrl = ns.getSearchurl().replace("{SKey}", keyword);
+				}
 			}
 		}
 	}
 %>
 
-<frameset rows="6%,6%,80%" cols="*" framespacing="0" frameborder="no">
+<frameset rows="7%,6%,80%" cols="*" framespacing="0" frameborder="no">
 	<frame src="/search/topBar.jsp?keyword=<%=keyword%>" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame">
 	<frame src="/search/mainBar.jsp?keyword=<%=keyword%>" name="mainFrame" id="mainFrame" title="mainFrame" scrolling="No" noresize="noresize">
 	<frame src="<%=firstUrl%>" name="contentFrame" id="contentFrame" title="contentFrame">
