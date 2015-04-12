@@ -7,7 +7,8 @@
 <%@include file="/include/homepageHeader.jsp"%>
 
 <%
-	String keyword = java.net.URLDecoder.decode(box.getParam("keyword"), "utf8");
+        String source = request.getParameter("keyword");
+	String keyword = new String((source != null?source:"").getBytes("ISO-8859-1"),"UTF8");
 
 	HashMap<String, String> viewMap = new HashMap<String, String>();
 	StringBuilder wheresql = new StringBuilder("where status>-1");

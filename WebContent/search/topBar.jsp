@@ -7,7 +7,8 @@
 <%@include file="/include/homepageHeader.jsp"%>
 
 <%
-	String keyword = java.net.URLDecoder.decode(box.getParam("keyword"), "utf8");
+        String source = request.getParameter("keyword");
+	String keyword = new String((source != null?source:"").getBytes("ISO-8859-1"),"UTF8");
 
 	String msg = "";
 	DataList<NgnMsg> dl = dao.list(NgnMsg.class, "where status >= 1 and userId = 10000 and toUserId = 0 order by sendDate desc");

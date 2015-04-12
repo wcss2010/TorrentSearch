@@ -27,9 +27,9 @@
 					if (hs != null) {
 						String[] hst = hs.split(",");
 						for (String name : hst) {
-							String url = java.net.URLEncoder.encode(name, "utf8");
+							//String url = java.net.URLEncoder.encode(name, "utf8");
 				%>
-				<a style="margin-left: 5px;" href="/btSearch.jsp?words=<%=url%>"><%=name%></a>
+				<a style="margin-left: 5px;" href="/btSearch.jsp?words=<%=name%>"><%=name%></a>
 				<%
 					}
 					}

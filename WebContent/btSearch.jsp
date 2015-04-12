@@ -30,16 +30,15 @@
 
 <%
 	HashMap<String, String> viewMap = new HashMap<String, String>();
-	String keyword = box.getParam("keyword");
-	String keywords = box.getParam("words");
+	String keyword = request.getParameter("keyword");
+	String keywords = request.getParameter("words");
 	String firstUrl = "";
 
 	if (keyword != null || keywords != null) {
 
 		if (keyword == null) {
-			keyword = keywords;
-		} else {
-			keyword = java.net.URLEncoder.encode(keyword, "utf8");
+		    keyword = new String(keywords.getBytes("ISO-8859-1"),"UTF8");
+                    //keyword = java.net.URLDecoder.decode(keywords,"UTF8");
 		}
 
 		StringBuilder wheresql = new StringBuilder("where status>-1");
